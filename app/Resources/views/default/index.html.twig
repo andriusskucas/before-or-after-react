@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block main_block_inner %}
+    <div class="main-wrapper">
+        <header>
+            <a href="#" class="back-arrow"><span></span></a>
+        </header>
+
+        {% include 'screens/introScreen.html.twig' %}
+        {% include 'screens/gameScreen.html.twig' %}
+        {% include 'screens/endScreen.html.twig' %}
+
+        {% include 'parts/loader.html.twig' %}
+
+        {% include 'modals/leaderboard.html.twig' %}
+        {% include 'modals/quitGame.html.twig' %}
+        {% include 'modals/fullDetails.html.twig' %}
+        {% include 'modals/alert.html.twig' %}
+
+    </div>
+
+    {% include 'parts/resizer.html.twig' %}
+
+{% endblock %}

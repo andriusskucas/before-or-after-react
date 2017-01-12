@@ -1,0 +1,24 @@
+/**
+* Main variables and parameters
+**/
+@import "params";
+
+/**
+* Common css rules
+**/
+@import "main";
+
+/**
+* Css for game intro wondow
+**/
+@import "introWindow";
+
+/**
+* Css for game window
+**/
+@import "gameWindow";
+
+/**
+* Css for and game screen
+**/
+@import "endGameWindow";

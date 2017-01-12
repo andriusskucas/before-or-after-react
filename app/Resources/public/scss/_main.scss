@@ -1,0 +1,404 @@
+/**********
+* Main stylesheet
+**********/
+
+html {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+
+}
+
+::-webkit-scrollbar-thumb {
+  background: lighten($dark_blue,10%);
+}
+
+
+body {
+  background: url(./img/main-bg.jpg) center center no-repeat;
+  background-size: cover;
+
+  margin: 0;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+
+}
+
+#main-block {
+  width: 100%;
+  max-width: $modal_width;
+
+  margin: 0 auto;
+  position: relative;
+  height: 100%;
+}
+
+
+
+.main-wrapper {
+  position: absolute;
+
+  width: 100%;
+  background: $light_gray;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 1px 0px 13px 0px rgba(0, 0, 0, 0.75);
+
+  display: flex;
+  flex-flow: column;
+  align-items: stretch;
+
+  @media #{$extraSmall}{
+    top:0;
+    bottom: 0;
+  }
+
+  @media #{$small}{
+    top:0;
+    bottom: 0;
+  }
+
+  @media #{$mediumUp}{
+    top: 40px;
+    bottom: 40px;
+  }
+}
+
+.screen{
+  flex: 1 0 auto;
+  position: relative;
+}
+
+.screen-inner{
+  display: flex;
+  flex-flow: column;
+  align-items: stretch;
+  position: absolute;
+  top:0;
+  right:0;
+  bottom: 0;
+  left:0;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+}
+
+.back-arrow {
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  margin: 5px;
+
+  span {
+    height: 1px;
+    width: 20px;
+    background: $light_gray;
+    content: '';
+
+    &:after, &:before {
+      display: block;
+      content: '';
+      width: 10px;
+      height: 1px;
+      background: $light_gray;
+      transform-origin: left center;
+    }
+
+    &:after {
+      transform: rotate(30deg);
+    }
+    &:before {
+      transform: rotate(-30deg);
+    }
+
+  }
+
+  @media #{$extraSmall}{
+    height: 20px;
+    padding: 5px;
+  }
+
+}
+
+.loader {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(darken($dark_blue, 40%), 0.95);
+  z-index: 9999999;
+}
+
+.loader-elem {
+  position: absolute;
+  top: 50%;
+
+  width: 100%;
+
+  margin-top: -8px;
+
+  text-align: center;
+}
+
+.load-circle {
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  background: $light_gray;
+  border-radius: 50%;
+  margin: 6px;
+  animation: loader 1.6s;
+  animation-iteration-count: infinite;
+
+  @for $i from 1 through 3 {
+    &:nth-child(#{$i}) {
+      animation-delay: $i* 0.2s;
+    }
+  }
+}
+
+.loader-text {
+  margin-top: 20px;
+  color: $light_gray;
+  text-transform: uppercase;
+}
+
+@keyframes loader {
+  0% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+
+  60% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.top-section{
+  flex: 0 1 auto;
+}
+
+.bottom-wrapper {
+  background: $dark_blue;
+  padding: 20px;
+  margin-top: 40px;
+  position: relative;
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+
+  &:before {
+    display: block;
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 16px 20px 16px;
+    border-color: transparent transparent $dark_blue transparent;
+    position: absolute;
+    left: 50%;
+    top: -20px;
+    margin-left: -16px;
+  }
+
+  @media #{$extraSmall}{
+    margin-top: 20px;
+    &:before {
+      border-width: 0 8px 10px 8px;
+      margin-left: -8px;
+      top: -9px;
+    }
+  }
+}
+
+.bottom-wrapper__content {
+  overflow-y: auto;
+  margin-top: auto;
+  align-self: flex-end;
+  width: 100%;
+}
+
+header {
+  height: $header_height;
+  background: $dark_blue;
+  padding-top: 1px;
+  margin-top: -1px;
+  flex: 0 1 $header_height;
+
+  @media #{$extraSmall}{
+    height:30px;
+    flex: 0 1 30px;
+  }
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 21px;
+  background: $green;
+  border-radius: 3px;
+  color: #DDDDDD;
+  font-weight: 300;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  transition: all .2s;
+  border: none;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 12px 18px -9px rgba(0, 0, 0, 0.26);
+  }
+}
+.modal{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  background: rgba(darken($dark_blue, 40%), 0.95);
+  text-align: center;
+  color: $light_gray;
+
+}
+.quit-modal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(darken($dark_blue, 40%), 0.95);
+  text-align: center;
+  color: $light_gray;
+
+  z-index: 10;
+  .btn {
+    margin: 10px;
+    width: 80px;
+  }
+}
+
+.quit-modal--holder, .modal-alert--holder {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+}
+
+.quit-modal--question, .modal-alert--message {
+  padding: 40px;
+}
+
+.modal--full-details , .modal--leaderboard{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(darken($dark_blue, 40%), 0.95);
+  z-index: 4;
+  overflow-y: auto;
+  display: none;
+  header {
+    font-size: 22px;
+    color: $light_gray;
+    padding: 10px;
+    padding-right: 40px;
+  }
+}
+
+.close-full-details , .close-leaderboard{
+  display: block;
+  color: $red;
+  font-size: 50px;
+  font-weight: 100;
+  line-height: 50px;
+  text-decoration: none;
+  padding: 0 4px;
+  position: absolute;
+  top: 0px;
+  right: 6px;
+
+}
+
+.full-details-content {
+  padding: 20px;
+  color: $light_gray;
+}
+
+.leaderboard{
+  margin:0;
+  padding:40px;
+  list-style: none;
+  width: 100%;
+  li{
+    list-style: none;
+    color: $light_gray;
+    width: 100%;
+    padding:10px;
+    border-bottom: solid 1px rgba($light_gray,0.4);
+
+  }
+
+  .leaderboard--place{
+    width: 8%;
+    display: inline-block;
+  }
+
+  .leaderboard--username{
+    width: 52%;
+    display: inline-block;
+  }
+
+  .leaderboard--score{
+    width: 20%;
+    display: inline-block;
+    text-align: center;
+  }
+
+  .leaderboard--time{
+    width: 20%;
+    display: inline-block;
+    text-align: center;
+  }
+}
+
+.leaderboard-content{
+  position: absolute;
+  top:60px;
+  right: 0;
+  bottom: 0;
+  left:0;
+
+  overflow-y: auto;
+}
+
+.hidenResizer{
+  display: none;
+  @media #{$extraSmall}{
+    padding: 60px;
+  }
+}
+
+.modal-alert{
+
+}

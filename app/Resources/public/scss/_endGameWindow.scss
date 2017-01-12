@@ -1,0 +1,192 @@
+.results {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: #EDE9E0;
+
+  li {
+    list-style: none;
+    border-bottom: solid 1px #BEBAB3;
+  }
+}
+
+
+
+.screen--end {
+  text-align: center;
+
+  h2 {
+    font-size: 40px;
+    color: $green;
+    text-transform: uppercase;
+    font-weight: 200;
+  }
+
+  .bottom-wrapper__content {
+    margin-top: 10px;
+    align-self: flex-start;
+  }
+}
+
+.results--item {
+  text-align: left;
+  padding: 6px;
+  vertical-align: middle;
+  color: $lime;
+
+  display: flex;
+  flex-flow: row;
+
+  .wrong-icon {
+    display: none;
+  }
+  &.wrong {
+    color: $red;
+    .wrong-icon {
+      display: inline-block;
+    }
+
+    .correct-icon {
+      display: none;
+    }
+  }
+
+  &:after {
+    display: block;
+    content: '';
+    clear: both;
+  }
+}
+
+
+
+.titleDate-holder {
+  display: flex;
+  flex-flow: row;
+  flex: 1 1 auto;
+
+}
+
+.titleDate-title {
+  flex: 1 1 auto;
+}
+
+.titleDate-date {
+  flex: 1 1 160px;
+  float: right;
+  text-align: right;
+  left: 10px;
+
+}
+
+.main-item {
+  padding: 20px;
+  font-weight: bold;
+  background: $green;
+  color: $dark_blue;
+
+  .titleDate-title {
+    padding-left: 30px;
+  }
+
+  .titleDate-date {
+    flex: 1 1 200px;
+    float: right;
+    text-align: right;
+    left: 10px;
+  }
+}
+
+.btn--more-details {
+  float: right;
+  font-size: 12px;
+  padding: 6px;
+}
+
+.correct-icon, .wrong-icon {
+  vertical-align: middle;
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  margin-right: 10px;
+  margin-left: 10px;
+
+}
+
+.correct-icon {
+  &:before {
+    display: block;
+    content: '\2714';
+  }
+
+}
+
+.wrong-icon {
+  &:before {
+    display: block;
+    content: '\2718';
+  }
+}
+
+.time-holder, .answers-holder {
+  font-weight: bold;
+  color: $lime;
+}
+
+.bottom-wrapper--header {
+  font-weight: 200;
+  text-transform: uppercase;
+  color: $light_gray;
+  margin-bottom: 40px;
+  font-size: 22px;
+}
+
+.end-game-buttons {
+  margin: 20px 0;
+
+  .btn {
+    font-size: 14px;
+    padding: 8px;
+    vertical-align: middle;
+    margin: 10px;
+
+  }
+}
+
+.register-leader {
+  border-radius: 10px;
+  padding: 20px;
+  border: solid 1px darken($light_gray, 10%);
+  margin: 20px auto;
+  display: none;
+  max-width: 400px;
+  width: 90%;
+  .btn {
+    margin-left: 0;
+    width: 100%;
+    padding: 10px;
+  }
+  small {
+    display: block;
+  }
+}
+
+#leader_name {
+  border-radius: 3px;
+  border: none;
+  width: 100%;
+  padding: 10px;
+  display: inline-block;
+}
+
+.game-score-text{
+  margin-top: 15px;
+  font-size: 18px;
+}
+
+.end-game-score{
+  margin-bottom: 30px;
+  font-size: 32px;
+  color: $lime;
+  font-weight: bold;
+}
